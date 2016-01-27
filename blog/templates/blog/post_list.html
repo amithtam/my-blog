@@ -1,22 +1,29 @@
 <html>
-    <head>
-        <title>WeShare</title>
-    </head>
-    <body>
-        <div>
-            <h1><a href="">Amit's First Blog</a></h1>
-        </div>
 
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="">My first post</a></h2>
-            <p>All is Well</p>
-        </div>
+<head>
 
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="">My second post</a></h2>
-            <p>Cool Stuff Done.</p>
-        </div>
-    </body>
+<title>WeShare</title>
+
+</head>
+
+<body>
+
+<div>
+
+<h1><marquee><a href="">Amit's First Blog</a></marquee></h1>
+
+</div>
+
+{% for post in posts %}   
+
+<div>
+<br>
+<h1><center><a href="">{{post.title}}</a></center></h1>
+<p><b>By-{{post.author}}, Published On-{{post.published_date}}</p></b>
+<p>{{post.text|linebreaks}}</p>
+</div>     
+{% endfor %}
+
+</body>
+
 </html>
