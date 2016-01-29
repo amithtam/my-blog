@@ -1,29 +1,15 @@
-<html>
+{% extends 'blog/base.html' %}
 
-<head>
-
-<title>WeShare</title>
-
-</head>
-
-<body>
-
-<div>
-
-<h1><marquee><a href="">Amit's First Blog</a></marquee></h1>
-
-</div>
+{% block content %}
 
 {% for post in posts %}   
-
-<div>
+<div class="post">
 <br>
-<h1><center><a href="">{{post.title}}</a></center></h1>
-<p><b>By-{{post.author}}, Published On-{{post.published_date}}</p></b>
+<center><h1><a href="% url 'post_detail' pk=post.pk %">{{post.title}}</a></center></h1>
+<p><b>By-{{post.author}}</p></b>
+<div class="date"><p><b>Published On-{{post.published_date}}</p></b></div>
 <p>{{post.text|linebreaks}}</p>
 </div>     
 {% endfor %}
 
-</body>
-
-</html>
+{% endblock content %}
